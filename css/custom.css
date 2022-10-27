@@ -1,0 +1,20 @@
+/*NAVBAR*/
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #555;
+}
+
+.navbar-brand {
+    float: none;
+    display: inline-block;
+    margin-top: -5px;
+}
+
+.navbar-text {
+    float: none;
+    width: 210px;
+    margin-top: -20px;
+}
+
+.menu--main.nav {
+    border-left: 1px solid #555;
+  }

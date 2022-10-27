@@ -1,3 +1,8 @@
+global-styling:
+  css:
+    base:
+      css/custom.css: {}
+
 attributes:
   js:
     js/attributes.js: {}
