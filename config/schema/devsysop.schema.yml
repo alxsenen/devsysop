@@ -1,5 +1,5 @@
 # Schema for the configuration files of the Bartik theme.
 
-bartik.settings:
+devsysop.settings:
   type: theme_settings
-  label: 'Bartik settings'
+  label: 'DevSysOp settings'
