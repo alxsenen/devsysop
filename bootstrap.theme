@@ -147,3 +147,7 @@ function bootstrap_theme_registry_alter(&$data, &$context1 = NULL, &$context2 = 
 function bootstrap_theme_suggestions_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
   Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
 }
+
+function bootstrap_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] = 'bootstrap/global-styling';
+}
