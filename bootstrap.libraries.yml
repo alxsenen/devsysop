@@ -1,7 +1,6 @@
 global-styling:
   css:
-    base:
-      css/custom.css: {}
+    css/custom.css: {}
 
 attributes:
   js:
