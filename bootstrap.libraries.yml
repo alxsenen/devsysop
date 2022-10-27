@@ -1,7 +1,8 @@
 global-styling:
   version: VERSION
   css:
-    css/custom.css: {}
+    bootstrap:
+      css/custom.css: {}
 
 attributes:
   js:
