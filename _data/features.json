@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Consultas gratis",
+    "description": "Podemos analizar y coordinar cualquier consulta.",
+    "image": {
+      "url": "images/features/noun_branding_1885335.svg",
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "title": "Personal capacitado",
+    "description": "Nuestro equipo está capacitado para hacer frente a cualquier tarea.",
+    "image": {
+      "url": "images/features/noun_The Process_1885341.svg",
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "title": "Precios acordes",
+    "description": "Ajustamos los precios de nuestros servicios y requerimientos del cliente.",
+    "image": {
+      "url": "images/features/noun_3d modeling_1885342.svg",
+      "width": 80,
+      "height": 80
+    }
+  }
+]
