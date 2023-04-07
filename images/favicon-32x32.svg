@@ -1,1 +1,15 @@
-<svg height="44.274" viewBox="0 0 44.274 44.274" width="44.274" xmlns="http://www.w3.org/2000/svg"><path d="m44.274 22.137q0 1.026-.092 2.028-.07.793-.2 1.567a22.153 22.153 0 1 1 .291-3.594z" fill="#fff"/><text fill="#5a65ff" font-family="SegoeUI, Segoe UI" font-size="19" transform="translate(5 28)"><tspan x="0" y="0">Saas</tspan></text></svg>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="67.000000pt" height="32.000000pt" viewBox="0 0 67.000000 32.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,32.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M442 290 c-37 -23 -50 -46 -33 -63 8 -8 22 -5 52 12 37 21 45 22 80
+12 58 -17 87 -88 59 -142 -15 -28 -68 -52 -101 -45 -15 3 -83 35 -150 71 -124
+67 -154 75 -154 40 0 -28 264 -164 318 -165 71 0 138 55 151 125 9 45 -24 118
+-66 148 -40 29 -115 33 -156 7z"/>
+</g>
+</svg>
