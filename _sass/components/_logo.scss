@@ -19,8 +19,8 @@
   @include media-breakpoint-up(sm) {
     display: none;
   }
-  img {
-    width: 100%;
+  .logo-mobile img {
+    width: 2000px;
     height: auto;
   }
   a {
