@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevSysOp — DevOps, Cloud &amp; Kubernetes for your business</title>
+  <meta name="description" content="We design, migrate and run cloud infrastructure for startups and small businesses in the US and Uruguay. CI/CD, Kubernetes, Terraform and monthly support.">
+  <link rel="canonical" href="https://devsysop.com/en/">
+  <link rel="alternate" hreflang="es" href="https://devsysop.com/">
+  <link rel="alternate" hreflang="en" href="https://devsysop.com/en/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devsysop.com/en/">
+  <meta property="og:title" content="DevSysOp — DevOps, Cloud &amp; Kubernetes">
+  <meta property="og:description" content="Automated, reliable cloud infrastructure. You focus on your product.">
+  <meta property="og:image" content="https://devsysop.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta name="theme-color" content="#0B0F14">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=2">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="#home" class="logo"><img src="../assets/logo.svg" alt="DevSysOp" width="180" height="33"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <span class="lang"><a href="../" lang="es" hreflang="es">ES</a> · EN</span>
+      <a href="#contact" class="btn btn-primary btn-sm">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="container hero">
+    <div class="hero-copy">
+      <span class="eyebrow">DevOps · Cloud · Kubernetes — US &amp; Uruguay</span>
+      <h1>Automated, reliable cloud infrastructure. You focus on your product.</h1>
+      <p class="hero-lead">We design, migrate and run cloud platforms for startups and small businesses that don't have —or don't want— an in-house DevOps team. Fearless deploys, costs under control, and someone who answers when things break.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">Book a free 30-min call</a>
+        <a href="#services" class="btn btn-ghost">See services</a>
+      </div>
+      <p class="small">No commitment · We reply within 24 h · Based in Uruguay, working on US-friendly hours (UTC-3)</p>
+    </div>
+    <div class="terminal" aria-hidden="true">
+      <div class="terminal-bar"><span></span><span></span><span></span><em>your-company — production</em></div>
+      <div class="terminal-body">
+        <div><span class="p">$</span> git push origin main</div>
+        <div class="o">→ pipeline: test ✓ build ✓ scan ✓</div>
+        <div><span class="p">$</span> argocd app sync your-app</div>
+        <div class="o">→ zero-downtime deploy · rollback ready</div>
+        <div><span class="p">$</span> terraform plan</div>
+        <div class="o">→ infrastructure versioned as code</div>
+        <div><span class="p">$</span> kubectl get pods</div>
+        <div class="o">→ 24/7 monitoring and alerts on</div>
+        <div class="ok">✓ All good. Sleep well tonight.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container" style="padding-top: 64px; padding-bottom: 64px">
+      <h2 style="font-size: 30px; margin-bottom: 32px">Sound familiar?</h2>
+      <div class="grid">
+        <div class="problem"><h3>Every deploy is scary</h3><p>It's done by hand, late on a Friday, and something always breaks.</p></div>
+        <div class="problem"><h3>Your cloud bill keeps growing</h3><p>Nobody really knows which servers are running or why.</p></div>
+        <div class="problem"><h3>Everything depends on one person</h3><p>If whoever built the infrastructure leaves, nobody knows how it works.</p></div>
+        <div class="problem"><h3>Customers tell you about outages</h3><p>There's no monitoring or alerting, and every incident is a surprise.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="container section">
+    <div class="section-head">
+      <span class="eyebrow">Services</span>
+      <h2>Clear packages with defined scope and price</h2>
+      <p class="muted" style="font-size: 17px">You know what you'll get, when, and what it costs before we start. Most clients begin with the audit.</p>
+    </div>
+    <div class="grid services-grid">
+      <article class="card featured">
+        <span class="tag">Start here</span>
+        <h3>Infrastructure &amp; cost audit</h3>
+        <p>We review your cloud, security and deploy process, then deliver a report with the issues we found and a prioritized improvement plan.</p>
+        <ul><li>Delivered in 2 weeks</li><li>Cost savings identified</li><li>Walkthrough meeting included</li></ul>
+        <p class="price">From $1,200</p>
+      </article>
+      <article class="card">
+        <h3>CI/CD &amp; automated deploys</h3>
+        <p>Pipelines that test, build and ship your code on their own. Separate development, staging and production environments.</p>
+        <ul><li>GitHub Actions or GitLab CI</li><li>One-click rollback</li><li>Documentation for your team</li></ul>
+        <p class="price">From $2,200</p>
+      </article>
+      <article class="card">
+        <h3>Cloud &amp; Kubernetes migration</h3>
+        <p>We move your applications to AWS, GCP or Azure with Kubernetes, Terraform and GitOps, without taking your service down.</p>
+        <ul><li>Infrastructure as code</li><li>Monitoring and alerting included</li><li>Phased migration plan</li></ul>
+        <p class="price">Custom quote</p>
+      </article>
+      <article class="card">
+        <h3>Monthly platform support</h3>
+        <p>Your outsourced DevOps team: maintenance, upgrades, on-call and continuous improvements for a fixed monthly fee.</p>
+        <ul><li>From 10 hours a month</li><li>Incident response</li><li>Monthly report</li></ul>
+        <p class="price">From $650/month</p>
+      </article>
+    </div>
+    <div class="hours">
+      <div class="hours-copy">
+        <h3>Prepaid hour packs</h3>
+        <p>For one-off tasks, questions or emergencies. Buy hours up front and use them whenever you need, within 3 months.</p>
+        <p class="small">Single hour, no pack: $80</p>
+      </div>
+      <div class="hours-grid">
+        <div class="hours-opt"><strong>10 hours</strong><span>$650</span></div>
+        <div class="hours-opt"><strong>25 hours</strong><span>$1,500</span></div>
+        <div class="hours-opt featured"><strong>50 hours</strong><span>$2,750</span></div>
+      </div>
+    </div>
+    <p class="small" style="margin-top: 16px; font-size: 13px">All prices in US dollars.</p>
+  </section>
+
+  <section id="process" class="band">
+    <div class="container section">
+      <div class="section-head">
+        <span class="eyebrow">How we work</span>
+        <h2>From the first call to a platform that runs itself</h2>
+      </div>
+      <div class="grid">
+        <div class="step"><span class="num">01</span><h3>Intro call</h3><p>30 free minutes to understand your business, your stack and what keeps you up at night.</p></div>
+        <div class="step"><span class="num">02</span><h3>Proposal</h3><p>Within a few days you get scope, timeline and a fixed price, in writing.</p></div>
+        <div class="step"><span class="num">03</span><h3>Implementation</h3><p>We work in phases, with weekly updates and everything documented.</p></div>
+        <div class="step"><span class="num">04</span><h3>Ongoing support</h3><p>If you want, we stay on to run and keep improving your platform.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="container section">
+    <div class="about">
+      <div class="about-copy">
+        <span class="eyebrow">About</span>
+        <h2>A small team. You talk to people, not a call center.</h2>
+        <p class="muted" style="font-size: 17px">DevSysOp is a family business based in Uruguay. One of us makes sure we understand your business and keeps you in the loop; the other makes sure your infrastructure works. We're on UTC-3, just 1–2 hours ahead of US Eastern time, and we work in English or Spanish.</p>
+        <div class="chips">
+          <span>Kubernetes</span><span>Terraform</span><span>ArgoCD</span><span>AWS · GCP · Azure</span><span>CI/CD</span><span>Prometheus · Grafana</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom: 96px">
+    <div class="case">
+      <div class="case-copy">
+        <span class="eyebrow">First client</span>
+        <h3>Óptica Briozzo: every workstation ready to go</h3>
+        <p class="muted">We installed and configured every computer at this optical store in Uruguay: desktop environment, printers, drivers and user access. We also provided help desk support so the team could work without interruptions.</p>
+        <p class="small"><a href="https://opticabriozzo.uy/" target="_blank" rel="noopener">opticabriozzo.uy</a></p>
+      </div>
+      <blockquote>“They left all our computers, printers and access working, and every time we needed something they responded quickly. Highly recommended.”<cite>— Luis Briozzo, Óptica Briozzo (translated from Spanish)</cite></blockquote>
+    </div>
+  </section>
+
+  <section id="faq" class="band">
+    <div class="container section faq">
+      <h2>Frequently asked questions</h2>
+      <details><summary>Do you work with US companies?</summary><p>Yes. We work remotely with companies in the US and Uruguay, in English or Spanish. Our hours overlap with US business hours, and we invoice in US dollars.</p></details>
+      <details><summary>We're a small company. Is this for us?</summary><p>Absolutely. If you can't justify a full-time DevOps hire, we give you that expertise per project or for a monthly fee.</p></details>
+      <details><summary>Which clouds and tools do you use?</summary><p>AWS, Google Cloud and Azure, with Kubernetes, Terraform, ArgoCD, GitHub Actions and Prometheus/Grafana, among others.</p></details>
+      <details><summary>Will the infrastructure be in our name?</summary><p>Always. The accounts and the code are yours, and everything is documented so you never depend on us.</p></details>
+    </div>
+  </section>
+
+  <section id="contact" class="container cta">
+    <h2>Tell us what's slowing you down. In 30 minutes we'll show you how we'd fix it.</h2>
+    <p class="muted">The call is free, with no commitment. If we're not the right fit, we'll tell you.</p>
+    <div class="btn-row">
+      <!-- Replace # with your Cal.com or Calendly link -->
+      <a href="#" class="btn btn-primary">Book a call</a>
+      <a href="https://wa.me/59897435356?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20DevSysOp%27s%20services" class="btn btn-ghost">Message us on WhatsApp</a>
+    </div>
+    <p class="small">WhatsApp: <a href="https://wa.me/59897435356">+598 97 435 356</a> · <a href="mailto:ventas@devsysop.com">ventas@devsysop.com</a></p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">
+      <img src="../assets/icono.svg" alt="" width="36" height="17">
+      <span>© 2026 DevSysOp · Platform engineering &amp; automation · Montevideo, Uruguay</span>
+    </div>
+    <div class="footer-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
