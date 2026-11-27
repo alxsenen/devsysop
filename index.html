@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -94,13 +94,13 @@
         <h3>Auditoría de infraestructura y costos</h3>
         <p>Revisamos tu cloud, seguridad y procesos de deploy. Te entregamos un informe con los problemas y un plan de mejoras priorizado.</p>
         <ul><li>Entrega en 2 semanas</li><li>Ahorros de costo identificados</li><li>Reunión de presentación incluida</li></ul>
-        <p class="price">Desde 1.200 USD<span class="price-alt">o 48.000 UYU</span><span class="price-iva">Con IVA: 1.464 USD · 58.560 UYU</span></p>
+        <div class="price-box"><span class="price-from">Desde</span><table class="price-table"><thead><tr><th scope="col"><span class="sr">Moneda</span></th><th scope="col">Sin IVA</th><th scope="col">Con IVA</th></tr></thead><tbody><tr class="usd"><th scope="row">USD</th><td>1.200</td><td>1.464</td></tr><tr><th scope="row">UYU</th><td>48.000</td><td>58.560</td></tr></tbody></table></div>
       </article>
       <article class="card">
         <h3>CI/CD y deploys automáticos</h3>
         <p>Pipelines que prueban, construyen y publican tu código solos. Ambientes de desarrollo, staging y producción separados.</p>
         <ul><li>GitHub Actions o GitLab CI</li><li>Rollback en un clic</li><li>Documentación para tu equipo</li></ul>
-        <p class="price">Desde 2.200 USD<span class="price-alt">o 88.000 UYU</span><span class="price-iva">Con IVA: 2.684 USD · 107.360 UYU</span></p>
+        <div class="price-box"><span class="price-from">Desde</span><table class="price-table"><thead><tr><th scope="col"><span class="sr">Moneda</span></th><th scope="col">Sin IVA</th><th scope="col">Con IVA</th></tr></thead><tbody><tr class="usd"><th scope="row">USD</th><td>2.200</td><td>2.684</td></tr><tr><th scope="row">UYU</th><td>88.000</td><td>107.360</td></tr></tbody></table></div>
       </article>
       <article class="card">
         <h3>Migración a la nube y Kubernetes</h3>
@@ -112,19 +112,19 @@
         <h3>Soporte mensual de plataforma</h3>
         <p>Tu equipo de DevOps externo: mantenimiento, actualizaciones, guardias y mejoras continuas, por un abono fijo.</p>
         <ul><li>Desde 10 horas al mes</li><li>Respuesta a incidentes</li><li>Reporte mensual</li></ul>
-        <p class="price">Desde 650 USD/mes<span class="price-alt">o 26.000 UYU/mes</span><span class="price-iva">Con IVA: 793 USD · 31.720 UYU/mes</span></p>
+        <div class="price-box"><span class="price-from">Desde, por mes</span><table class="price-table"><thead><tr><th scope="col"><span class="sr">Moneda</span></th><th scope="col">Sin IVA</th><th scope="col">Con IVA</th></tr></thead><tbody><tr class="usd"><th scope="row">USD</th><td>650</td><td>793</td></tr><tr><th scope="row">UYU</th><td>26.000</td><td>31.720</td></tr></tbody></table></div>
       </article>
     </div>
     <div class="hours">
       <div class="hours-copy">
         <h3>Bolsa de horas prepagas</h3>
         <p>Para tareas puntuales, consultas o urgencias. Comprás las horas por adelantado y las usás cuando las necesitás, durante 3 meses.</p>
-        <p class="small">Hora suelta, sin paquete: 80 USD · 3.200 UYU<br>Con IVA: 97,60 USD · 3.904 UYU</p>
+        <div class="hours-single"><strong>Hora suelta, sin paquete</strong><div class="price-box"><table class="price-table"><thead><tr><th scope="col"><span class="sr">Moneda</span></th><th scope="col">Sin IVA</th><th scope="col">Con IVA</th></tr></thead><tbody><tr class="usd"><th scope="row">USD</th><td>80</td><td>97,60</td></tr><tr><th scope="row">UYU</th><td>3.200</td><td>3.904</td></tr></tbody></table></div></div>
       </div>
       <div class="hours-grid">
-        <div class="hours-opt"><strong>10 horas</strong><span>650 USD</span><span class="small">26.000 UYU</span><span class="small iva">Con IVA: 793 USD · 31.720 UYU</span></div>
-        <div class="hours-opt"><strong>25 horas</strong><span>1.500 USD</span><span class="small">60.000 UYU</span><span class="small iva">Con IVA: 1.830 USD · 73.200 UYU</span></div>
-        <div class="hours-opt featured"><strong>50 horas</strong><span>2.750 USD</span><span class="small">110.000 UYU</span><span class="small iva">Con IVA: 3.355 USD · 134.200 UYU</span></div>
+        <div class="hours-opt"><strong>10 horas</strong><div class="price-box"><table class="price-table"><thead><tr><th scope="col"><span class="sr">Moneda</span></th><th scope="col">Sin IVA</th><th scope="col">Con IVA</th></tr></thead><tbody><tr class="usd"><th scope="row">USD</th><td>650</td><td>793</td></tr><tr><th scope="row">UYU</th><td>26.000</td><td>31.720</td></tr></tbody></table></div></div>
+        <div class="hours-opt"><strong>25 horas</strong><div class="price-box"><table class="price-table"><thead><tr><th scope="col"><span class="sr">Moneda</span></th><th scope="col">Sin IVA</th><th scope="col">Con IVA</th></tr></thead><tbody><tr class="usd"><th scope="row">USD</th><td>1.500</td><td>1.830</td></tr><tr><th scope="row">UYU</th><td>60.000</td><td>73.200</td></tr></tbody></table></div></div>
+        <div class="hours-opt featured"><strong>50 horas</strong><div class="price-box"><table class="price-table"><thead><tr><th scope="col"><span class="sr">Moneda</span></th><th scope="col">Sin IVA</th><th scope="col">Con IVA</th></tr></thead><tbody><tr class="usd"><th scope="row">USD</th><td>2.750</td><td>3.355</td></tr><tr><th scope="row">UYU</th><td>110.000</td><td>134.200</td></tr></tbody></table></div></div>
       </div>
     </div>
     <p class="small" style="margin-top: 16px; font-size: 13px">Los valores en pesos uruguayos se calcularon a 1 USD = 40 UYU y pueden ajustarse según la cotización.</p>
