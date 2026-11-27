@@ -71,6 +71,17 @@ img { display: block; max-width: 100%; }
 .terminal-body .o { color: var(--text-3); }
 .terminal-body .ok { color: var(--accent); margin-top: 8px; }
 
+/* Hours */
+.price-alt { display: block; font-family: Inter, sans-serif; font-size: 14px; font-weight: 400; color: var(--text-3); }
+.hours { margin-top: 20px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center; }
+.hours-copy { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.hours-copy h3 { font-size: 22px; }
+.hours-copy p:not(.small) { color: var(--text-2); font-size: 15px; }
+.hours-grid { flex: 2 1 480px; min-width: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+.hours-opt { border: 1px solid var(--line-2); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; }
+.hours-opt.featured { border-color: var(--accent); }
+.hours-opt strong { font-family: 'Space Grotesk', sans-serif; font-size: 18px; }
+
 /* Grids */
 .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .problem h3 { font-size: 18px; margin-bottom: 8px; }

@@ -31,11 +31,14 @@ Si alguna vez deja de funcionar, revisá en GitHub: **Settings → Pages**
 
 El archivo `CNAME` tiene que quedar en el repo: es el que le dice a GitHub qué dominio usar.
 
+## Precios
+
+Los precios en pesos uruguayos se calcularon a 1 USD = 40 UYU. Si el dólar se mueve mucho, actualizalos en `index.html`.
+
 ## Pendientes antes de publicar
 
 Buscá `[` en `index.html` para encontrar todo lo que falta completar:
 
-- Precios y plazos de los paquetes
 - Nombres, fotos y experiencia
 - Caso real y testimonio
 - Forma de pago
