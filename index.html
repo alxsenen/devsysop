@@ -1,402 +1,210 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevSysOp | Platform Engineering</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevSysOp — DevOps, Cloud y Kubernetes para tu empresa</title>
+  <meta name="description" content="Diseñamos, migramos y operamos infraestructura cloud para startups y pymes en Uruguay, Latinoamérica y EE.UU. CI/CD, Kubernetes, Terraform y soporte mensual.">
+  <link rel="canonical" href="https://devsysop.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devsysop.com/">
+  <meta property="og:title" content="DevSysOp — DevOps, Cloud y Kubernetes">
+  <meta property="og:description" content="Infraestructura cloud automatizada y estable. Vos enfocate en tu producto.">
+  <meta property="og:image" content="https://devsysop.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0B0F14">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #f4f7fb;
-      --card: rgba(255,255,255,0.8);
-      --text: #111827;
-      --muted: #4b5563;
-      --border: rgba(0,0,0,0.08);
-      --accent: #2563eb;
-      --accent-soft: rgba(37,99,235,0.12);
-      --shadow: 0 20px 60px rgba(0,0,0,0.08);
-      --terminal: #0f172a;
-      --terminal-text: #d1fae5;
-      --grid: rgba(0,0,0,0.04);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #060816;
-        --card: rgba(12,16,32,0.72);
-        --text: #f8fafc;
-        --muted: #94a3b8;
-        --border: rgba(255,255,255,0.08);
-        --accent: #60a5fa;
-        --accent-soft: rgba(96,165,250,0.14);
-        --shadow: 0 25px 80px rgba(0,0,0,0.45);
-        --terminal: #020617;
-        --terminal-text: #86efac;
-        --grid: rgba(255,255,255,0.04);
-      }
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: -2;
-      mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      width: 700px;
-      height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(37,99,235,0.15), transparent 70%);
-      top: -250px;
-      right: -250px;
-      z-index: -1;
-      filter: blur(40px);
-    }
-
-    .container {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .hero {
-      width: 100%;
-      max-width: 1250px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 40px;
-      align-items: center;
-    }
-
-    .left {
-      animation: fadeIn 1s ease;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--accent-soft);
-      border: 1px solid var(--border);
-      color: var(--accent);
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 28px;
-      backdrop-filter: blur(12px);
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #22c55e;
-      animation: pulse 1.5s infinite;
-    }
-
-    .logo {
-      width: 240px;
-      margin-bottom: 35px;
-      filter: drop-shadow(0 10px 30px rgba(37,99,235,0.25));
-    }
-
-    h1 {
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: 0.95;
-      letter-spacing: -3px;
-      margin-bottom: 25px;
-      font-weight: 800;
-    }
-
-    .gradient {
-      background: linear-gradient(90deg, var(--accent), #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 620px;
-      margin-bottom: 32px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 35px;
-    }
-
-    .btn {
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 14px;
-      font-weight: 700;
-      transition: all .3s ease;
-      border: 1px solid var(--border);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      backdrop-filter: blur(12px);
-    }
-
-    .btn-secondary:hover {
-      background: var(--accent-soft);
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .tag {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      backdrop-filter: blur(10px);
-      font-size: .95rem;
-      transition: .3s ease;
-    }
-
-    .tag:hover {
-      transform: translateY(-3px);
-      color: var(--text);
-    }
-
-    .right {
-      position: relative;
-      animation: slideUp 1s ease;
-    }
-
-    .terminal {
-      background: var(--terminal);
-      color: var(--terminal-text);
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .terminal-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 18px 22px;
-      background: rgba(255,255,255,0.03);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .circle {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .red { background: #ef4444; }
-    .yellow { background: #f59e0b; }
-    .green { background: #22c55e; }
-
-    .terminal-body {
-      padding: 28px;
-      font-size: 15px;
-      line-height: 1.9;
-      font-family: monospace;
-      overflow-x: auto;
-    }
-
-    .prompt {
-      color: #38bdf8;
-    }
-
-    .success {
-      color: #4ade80;
-    }
-
-    .warning {
-      color: #facc15;
-    }
-
-    .footer {
-      margin-top: 40px;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.5); opacity: .4; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        text-align: center;
-      }
-
-      p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .actions,
-      .tags {
-        justify-content: center;
-      }
-
-      .logo {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+
+<header class="header">
   <div class="container">
-    <section class="hero">
-
-      <div class="left">
-        <div class="badge">
-          <span class="dot"></span>
-          Platform Upgrade In Progress
-        </div>
-
-        <!-- <img src="logo-2.svg" alt="DevSysOp Logo" class="logo"> -->
-
-        <h1>
-          Cloud & <span class="gradient">Platform</span><br>
-          Engineering
-        </h1>
-
-        <p>
-          DevSysop is currently evolving its infrastructure platform.
-          We're improving automation, scalability, Kubernetes operations,
-          observability, and cloud-native deployments to deliver a better experience.
-        </p>
-
-        <div class="actions">
-          <a href="#" class="btn btn-primary">Infrastructure Upgrade</a>
-          <a href="#" class="btn btn-secondary">Coming Soon</a>
-        </div>
-
-        <div class="tags">
-          <div class="tag">Kubernetes</div>
-          <div class="tag">DevOps</div>
-          <div class="tag">CI/CD</div>
-          <div class="tag">Cloud</div>
-          <div class="tag">Terraform</div>
-          <div class="tag">Observability</div>
-        </div>
-
-        <div class="footer">
-          © 2026 DevSysOp · Platform Engineering & Automation
-        </div>
-      </div>
-
-      <div class="right">
-        <div class="terminal">
-          <div class="terminal-header">
-            <div class="circle red"></div>
-            <div class="circle yellow"></div>
-            <div class="circle green"></div>
-          </div>
-
-          <div class="terminal-body">
-<span class="prompt">devsysop@platform:~$</span> kubectl get pods -A
-<br>
-<span class="success">✔ monitoring-stack Running</span>
-<br>
-<span class="success">✔ ingress-nginx Running</span>
-<br>
-<span class="success">✔ argocd-server Running</span>
-<br>
-<span class="success">✔ external-dns Running</span>
-<br><br>
-<span class="prompt">devsysop@platform:~$</span> terraform apply
-<br>
-<span class="warning">Updating infrastructure modules...</span>
-<br>
-<span class="success">Apply complete! Resources: 42 added.</span>
-<br><br>
-<span class="prompt">devsysop@platform:~$</span> echo "Launching next generation platform"
-<br>
-<span class="success">Launching next generation platform</span>
-          </div>
-        </div>
-      </div>
-
-    </section>
+    <a href="#inicio" class="logo"><img src="/assets/logo.svg" alt="DevSysOp" width="180" height="33"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#faq">Preguntas</a>
+      <span class="lang">ES · <a href="#" title="Próximamente">EN</a></span>
+      <a href="#contacto" class="btn btn-primary btn-sm">Agendar llamada</a>
+    </nav>
   </div>
+</header>
+
+<main>
+  <section id="inicio" class="container hero">
+    <div class="hero-copy">
+      <span class="eyebrow">DevOps · Cloud · Kubernetes — Uruguay, LatAm y EE.UU.</span>
+      <h1>Tu infraestructura cloud, automatizada y estable. Vos enfocate en tu producto.</h1>
+      <p class="hero-lead">Diseñamos, migramos y operamos plataformas en la nube para startups y pymes que no tienen —o no quieren tener— un equipo de DevOps propio. Deploys sin miedo, costos bajo control y alguien que responde cuando algo falla.</p>
+      <div class="btn-row">
+        <a href="#contacto" class="btn btn-primary">Agendá una llamada gratis de 30 min</a>
+        <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      </div>
+      <p class="small">Sin compromiso · Respondemos en menos de 24 h · Atendemos en español e inglés</p>
+    </div>
+    <div class="terminal" aria-hidden="true">
+      <div class="terminal-bar"><span></span><span></span><span></span><em>tu-empresa — produccion</em></div>
+      <div class="terminal-body">
+        <div><span class="p">$</span> git push origin main</div>
+        <div class="o">→ pipeline: test ✓ build ✓ scan ✓</div>
+        <div><span class="p">$</span> argocd app sync tu-app</div>
+        <div class="o">→ deploy sin downtime · rollback listo</div>
+        <div><span class="p">$</span> terraform plan</div>
+        <div class="o">→ infraestructura versionada como código</div>
+        <div><span class="p">$</span> kubectl get pods</div>
+        <div class="o">→ monitoreo y alertas 24/7 activos</div>
+        <div class="ok">✓ Todo en orden. Podés dormir tranquilo.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container" style="padding-top: 64px; padding-bottom: 64px">
+      <h2 style="font-size: 30px; margin-bottom: 32px">¿Te suena alguno de estos?</h2>
+      <div class="grid">
+        <div class="problem"><h3>Cada deploy da miedo</h3><p>Se hace a mano, un viernes a la noche, y siempre algo se rompe.</p></div>
+        <div class="problem"><h3>La factura cloud no para de crecer</h3><p>Nadie sabe bien qué servidores están prendidos ni por qué.</p></div>
+        <div class="problem"><h3>Todo depende de una persona</h3><p>Si el que armó la infraestructura se va, nadie sabe cómo funciona.</p></div>
+        <div class="problem"><h3>Te enterás de las caídas por tus clientes</h3><p>No hay monitoreo ni alertas, y cada incidente es una sorpresa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="container section">
+    <div class="section-head">
+      <span class="eyebrow">Servicios</span>
+      <h2>Paquetes claros, con alcance y precio definidos</h2>
+      <p class="muted" style="font-size: 17px">Sabés qué vas a recibir, cuándo y cuánto cuesta antes de empezar. La mayoría de nuestros clientes arranca con la auditoría.</p>
+    </div>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))">
+      <article class="card featured">
+        <span class="tag">Para empezar</span>
+        <h3>Auditoría de infraestructura y costos</h3>
+        <p>Revisamos tu cloud, seguridad y procesos de deploy. Te entregamos un informe con los problemas y un plan de mejoras priorizado.</p>
+        <ul><li>Entrega en [X] días</li><li>Ahorros de costo identificados</li><li>Reunión de presentación incluida</li></ul>
+        <p class="price">Desde [PRECIO] USD</p>
+      </article>
+      <article class="card">
+        <h3>CI/CD y deploys automáticos</h3>
+        <p>Pipelines que prueban, construyen y publican tu código solos. Ambientes de desarrollo, staging y producción separados.</p>
+        <ul><li>GitHub Actions o GitLab CI</li><li>Rollback en un clic</li><li>Documentación para tu equipo</li></ul>
+        <p class="price">Desde [PRECIO] USD</p>
+      </article>
+      <article class="card">
+        <h3>Migración a la nube y Kubernetes</h3>
+        <p>Llevamos tus aplicaciones a AWS, GCP o Azure con Kubernetes, Terraform y GitOps, sin cortar el servicio.</p>
+        <ul><li>Infraestructura como código</li><li>Monitoreo y alertas incluidos</li><li>Plan de migración por etapas</li></ul>
+        <p class="price">Cotización a medida</p>
+      </article>
+      <article class="card">
+        <h3>Soporte mensual de plataforma</h3>
+        <p>Tu equipo de DevOps externo: mantenimiento, actualizaciones, guardias y mejoras continuas, por un abono fijo.</p>
+        <ul><li>[X] horas al mes</li><li>Respuesta a incidentes</li><li>Reporte mensual</li></ul>
+        <p class="price">Desde [PRECIO] USD/mes</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="proceso" class="band">
+    <div class="container section">
+      <div class="section-head">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2>De la primera llamada a una plataforma que funciona sola</h2>
+      </div>
+      <div class="grid">
+        <div class="step"><span class="num">01</span><h3>Llamada inicial</h3><p>30 minutos gratis para entender tu negocio, tu stack y qué te preocupa.</p></div>
+        <div class="step"><span class="num">02</span><h3>Propuesta</h3><p>En pocos días recibís alcance, plazos y precio cerrado, por escrito.</p></div>
+        <div class="step"><span class="num">03</span><h3>Implementación</h3><p>Trabajamos por etapas, con avances semanales y todo documentado.</p></div>
+        <div class="step"><span class="num">04</span><h3>Soporte continuo</h3><p>Si querés, seguimos a tu lado operando y mejorando la plataforma.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" class="container section">
+    <div class="about">
+      <div class="about-copy">
+        <span class="eyebrow">Nosotros</span>
+        <h2>Un equipo chico. Hablás con personas, no con un call center.</h2>
+        <p class="muted" style="font-size: 17px">DevSysOp es un emprendimiento familiar desde Uruguay. Uno de nosotros se ocupa de entender tu negocio y acompañarte; el otro, de que tu infraestructura funcione. Trabajamos en horario UTC-3, muy cerca del horario de EE.UU., y en español o inglés.</p>
+        <div class="chips">
+          <span>Kubernetes</span><span>Terraform</span><span>ArgoCD</span><span>AWS · GCP · Azure</span><span>CI/CD</span><span>Prometheus · Grafana</span>
+        </div>
+      </div>
+      <div class="about-people">
+        <div class="person">
+          <!-- Reemplazar por: <img class="avatar" src="/assets/foto-nombre.jpg" alt="Tu nombre"> -->
+          <div class="avatar">[FOTO]</div>
+          <h3>[Tu nombre]</h3>
+          <p class="role">Ingeniero de plataforma</p>
+          <p>[Años de experiencia, empresas o proyectos destacados, certificaciones.]</p>
+        </div>
+        <div class="person">
+          <div class="avatar">[FOTO]</div>
+          <h3>[Nombre de tu esposa]</h3>
+          <p class="role">Relación con clientes</p>
+          <p>Tu punto de contacto: propuestas, seguimiento y que todo salga en tiempo y forma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom: 96px">
+    <div class="case">
+      <div class="case-copy">
+        <span class="eyebrow">Caso real</span>
+        <h3>[Tipo de empresa]: [qué problema tenía]</h3>
+        <p class="muted">[Qué hicieron y qué resultado concreto lograron: menos tiempo de deploy, menos costo, menos caídas. Puede ser anónimo.]</p>
+      </div>
+      <blockquote>“[Frase de un cliente, con su permiso.]”<cite>— [Nombre, cargo, empresa]</cite></blockquote>
+    </div>
+  </section>
+
+  <section id="faq" class="band">
+    <div class="container section faq">
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>¿Trabajan con empresas fuera de Uruguay?</summary><p>Sí. Trabajamos de forma remota con clientes en Uruguay, el resto de Latinoamérica y Estados Unidos, en español o inglés. Facturamos en dólares.</p></details>
+      <details><summary>Somos una empresa chica, ¿esto es para nosotros?</summary><p>Justamente. Si no tenés presupuesto para contratar un DevOps a tiempo completo, te damos ese conocimiento por proyecto o por abono mensual.</p></details>
+      <details><summary>¿Qué nubes y herramientas manejan?</summary><p>AWS, Google Cloud y Azure, con Kubernetes, Terraform, ArgoCD, GitHub Actions y Prometheus/Grafana, entre otras.</p></details>
+      <details><summary>¿La infraestructura queda a nuestro nombre?</summary><p>Siempre. Las cuentas y el código son tuyos, y todo queda documentado para que no dependas de nosotros.</p></details>
+      <details><summary>¿Cómo se paga?</summary><p>[Ej.: 50% al inicio y 50% al entregar para proyectos; abono mensual por adelantado para soporte. Transferencia, PayPal o Wise.]</p></details>
+    </div>
+  </section>
+
+  <section id="contacto" class="container cta">
+    <h2>Contanos qué te está frenando. En 30 minutos te decimos cómo lo resolveríamos.</h2>
+    <p class="muted">La llamada es gratis y sin compromiso. Si no somos la opción indicada, te lo vamos a decir.</p>
+    <div class="btn-row">
+      <!-- Reemplazar # por tu link de Cal.com o Calendly -->
+      <a href="#" class="btn btn-primary">Agendar llamada</a>
+      <!-- Reemplazar 598XXXXXXXX por tu número con código de país, sin + ni espacios -->
+      <a href="https://wa.me/598XXXXXXXX" class="btn btn-ghost">Escribinos por WhatsApp</a>
+    </div>
+    <p class="small">o escribinos a <a href="mailto:hola@devsysop.com">hola@devsysop.com</a></p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">
+      <img src="/assets/icono.svg" alt="" width="36" height="17">
+      <span>© 2026 DevSysOp · Ingeniería de plataformas y automatización · Montevideo, Uruguay</span>
+    </div>
+    <div class="footer-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
